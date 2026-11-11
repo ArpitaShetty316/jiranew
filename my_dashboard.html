@@ -105,11 +105,16 @@
             background: #f8f9fa; 
             border-radius: 10px;
             border: 1px solid #e0e0e0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
         }
         .filter-bar label {
             font-weight: 600;
             color: #333;
             margin-right: 8px;
+            white-space: nowrap;
         }
         .filter-bar select { 
             padding: 10px 15px; 
@@ -203,6 +208,11 @@
                 <option value="all">All Phases</option>
             </select>
             
+            <label style="margin-left: 20px;">Filter by Found-in Environment:</label>
+            <select id="foundInEnvFilter" onchange="applyFilters()" style="padding: 8px; margin-right: 10px; border-radius: 5px; border: 1px solid #ddd; min-width: 200px;">
+                <option value="all">All Environments</option>
+            </select>
+            
             <button onclick="resetFilters()" style="margin-left: 20px; padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Reset Filters</button>
             <button onclick="exportToExcel()" style="margin-left: 20px; padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Export to Excel</button>
         </div>
@@ -213,7 +223,7 @@
             <div class="chart"><canvas id="applicationChart"></canvas></div>
         </div>
         <table>
-            <thead><tr><th>Key</th><th>Summary</th><th>Assignee</th><th>Priority</th><th>Severity</th><th>Status</th><th>Application</th><th>Found During</th><th>Defect Age</th></tr></thead>
+            <thead><tr><th>Key</th><th>Summary</th><th>Assignee</th><th>Priority</th><th>Severity</th><th>Status</th><th>Application</th><th>Found During</th><th>Found-in Environment</th><th>Defect Age</th></tr></thead>
             <tbody id="table"></tbody>
         </table>
         
@@ -236,7 +246,8 @@
         "Category":  "N/A",
         "IssueType":  "Story",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-578512",
@@ -249,7 +260,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-578375",
@@ -262,7 +274,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-590994",
@@ -275,7 +288,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-596066",
@@ -288,7 +302,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596065",
@@ -301,7 +316,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596068",
@@ -314,7 +330,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596070",
@@ -327,7 +344,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596069",
@@ -340,7 +358,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596064",
@@ -353,7 +372,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596060",
@@ -366,7 +386,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596059",
@@ -379,7 +400,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596061",
@@ -392,7 +414,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596063",
@@ -405,7 +428,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596062",
@@ -418,7 +442,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596071",
@@ -431,7 +456,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596079",
@@ -444,7 +470,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596078",
@@ -457,7 +484,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596080",
@@ -470,7 +498,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596086",
@@ -483,7 +512,8 @@
         "Category":  "N/A",
         "IssueType":  "Test Execution",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596081",
@@ -496,7 +526,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596077",
@@ -509,7 +540,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596073",
@@ -522,7 +554,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596072",
@@ -535,7 +568,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596074",
@@ -548,7 +582,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596076",
@@ -561,7 +596,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596075",
@@ -574,7 +610,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596058",
@@ -587,7 +624,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596052",
@@ -600,7 +638,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596051",
@@ -613,7 +652,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596054",
@@ -626,7 +666,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596053",
@@ -639,7 +680,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596055",
@@ -652,7 +694,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596057",
@@ -665,7 +708,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-596056",
@@ -678,7 +722,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-610962",
@@ -691,7 +736,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-652861",
@@ -704,7 +750,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-655332",
@@ -717,7 +764,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-349",
@@ -730,7 +778,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-686139",
@@ -743,7 +792,8 @@
         "Category":  "N/A",
         "IssueType":  "Test",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-692342",
@@ -756,7 +806,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAVCUTOVR-736",
@@ -769,7 +820,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1103",
@@ -782,7 +834,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1018",
@@ -795,7 +848,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1059",
@@ -808,7 +862,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1096",
@@ -821,7 +876,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1016",
@@ -834,7 +890,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-1275",
@@ -847,7 +904,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-710244",
@@ -860,7 +918,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-712970",
@@ -873,7 +932,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-717772",
@@ -886,7 +946,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-2023",
@@ -899,7 +960,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-2032",
@@ -912,7 +974,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-723660",
@@ -925,7 +988,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-733431",
@@ -938,7 +1002,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-740459",
@@ -951,7 +1016,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Empty",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-739958",
@@ -964,7 +1030,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-741010",
@@ -977,7 +1044,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAVCUTOVR-2536",
@@ -990,7 +1058,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-2642",
@@ -1003,7 +1072,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-751798",
@@ -1016,7 +1086,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-753391",
@@ -1029,7 +1100,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-758705",
@@ -1042,7 +1114,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 4"
+        "Severity":  "Sev 4",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAVCUTOVR-3068",
@@ -1055,7 +1128,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-3081",
@@ -1068,7 +1142,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-764897",
@@ -1081,7 +1156,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-766102",
@@ -1094,7 +1170,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-767880",
@@ -1107,7 +1184,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-768060",
@@ -1120,7 +1198,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-771998",
@@ -1133,7 +1212,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "ORT Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-774913",
@@ -1146,7 +1226,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-776339",
@@ -1159,7 +1240,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-775702",
@@ -1172,7 +1254,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-776383",
@@ -1185,7 +1268,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-778309",
@@ -1198,7 +1282,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "ORT Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-3445",
@@ -1211,7 +1296,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-3682",
@@ -1224,7 +1310,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAV-779557",
@@ -1237,7 +1324,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-781007",
@@ -1250,7 +1338,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-786117",
@@ -1263,7 +1352,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-784990",
@@ -1276,7 +1366,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAVCUTOVR-3616",
@@ -1289,7 +1380,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 4"
+        "Severity":  "Sev 4",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-787809",
@@ -1302,7 +1394,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Hypercare",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "DEV"
     },
     {
         "Key":  "MAV-788391",
@@ -1315,7 +1408,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-788116",
@@ -1328,7 +1422,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAV-788269",
@@ -1341,7 +1436,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Cutover",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-788285",
@@ -1354,7 +1450,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Cutover",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-788908",
@@ -1367,7 +1464,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Hypercare",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAVCUTOVR-3629",
@@ -1380,7 +1478,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-789654",
@@ -1393,7 +1492,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-790575",
@@ -1406,7 +1506,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 1"
+        "Severity":  "Sev 1",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-790788",
@@ -1419,7 +1520,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "ORT Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-792428",
@@ -1427,12 +1529,13 @@
         "Priority":  "P4 - Medium",
         "Status":  "Waiting for Dev",
         "Assignee":  "Lee1, Annie",
-        "Age":  47,
+        "Age":  48,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-3711",
@@ -1445,7 +1548,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAV-794315",
@@ -1458,7 +1562,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Empty",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-794554",
@@ -1471,7 +1576,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-796675",
@@ -1484,7 +1590,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAVCUTOVR-3733",
@@ -1497,7 +1604,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-798327",
@@ -1510,7 +1618,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 1"
+        "Severity":  "Sev 1",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-800339",
@@ -1523,7 +1632,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-802196",
@@ -1531,12 +1641,13 @@
         "Priority":  "P3 - High",
         "Status":  "Proposed",
         "Assignee":  "Lee1, Annie",
-        "Age":  32,
+        "Age":  33,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-802274",
@@ -1549,7 +1660,8 @@
         "Category":  "N/A",
         "IssueType":  "Story",
         "FoundDuring":  "N/A",
-        "Severity":  "N/A"
+        "Severity":  "N/A",
+        "FoundInEnvironment":  "N/A"
     },
     {
         "Key":  "MAV-802578",
@@ -1562,7 +1674,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-802518",
@@ -1575,7 +1688,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAVCUTOVR-3803",
@@ -1588,7 +1702,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-807022",
@@ -1601,7 +1716,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAVCUTOVR-3884",
@@ -1614,7 +1730,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-808428",
@@ -1627,7 +1744,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAVCUTOVR-4143",
@@ -1640,7 +1758,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAV-809337",
@@ -1653,7 +1772,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-810898",
@@ -1666,7 +1786,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAVCUTOVR-4036",
@@ -1679,7 +1800,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "UAT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "UAT"
     },
     {
         "Key":  "MAVCUTOVR-3990",
@@ -1692,7 +1814,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Elevation Testing",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-814845",
@@ -1705,7 +1828,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-814854",
@@ -1718,7 +1842,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Pilot/Pre-prod"
     },
     {
         "Key":  "MAV-814839",
@@ -1731,7 +1856,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "SIT Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-814842",
@@ -1744,7 +1870,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Performance",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-815262",
@@ -1757,7 +1884,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Performance",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-815874",
@@ -1770,7 +1898,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Regression",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-817935",
@@ -1783,7 +1912,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-817759",
@@ -1796,7 +1926,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-818720",
@@ -1809,7 +1940,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 4"
+        "Severity":  "Sev 4",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
         "Key":  "MAV-818947",
@@ -1822,7 +1954,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "DIT",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-819497",
@@ -1835,7 +1968,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-820248",
@@ -1848,7 +1982,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "E2E Functional",
-        "Severity":  "Sev 3"
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "SIT"
     },
     {
         "Key":  "MAV-821128",
@@ -1861,7 +1996,8 @@
         "Category":  "N/A",
         "IssueType":  "Defect",
         "FoundDuring":  "Hypercare",
-        "Severity":  "Sev 2"
+        "Severity":  "Sev 2",
+        "FoundInEnvironment":  "ODW 1.0 Production"
     }
 ];
         let currentPage = 1;
@@ -1885,7 +2021,7 @@
             const pageData = issues.slice(startIndex, endIndex);
             
             pageData.forEach(i => {
-                tbody.innerHTML += '<tr><td><a href="https://jira.dell.com/browse/'+i.Key+'">'+i.Key+'</a></td><td>'+i.Summary+'</td><td>'+i.Assignee+'</td><td>'+i.Priority+'</td><td>'+i.Severity+'</td><td>'+i.Status+'</td><td>'+i.Application+'</td><td>'+i.FoundDuring+'</td><td>'+i.Age+'</td></tr>';
+                tbody.innerHTML += '<tr><td><a href="https://jira.dell.com/browse/'+i.Key+'">'+i.Key+'</a></td><td>'+i.Summary+'</td><td>'+i.Assignee+'</td><td>'+i.Priority+'</td><td>'+i.Severity+'</td><td>'+i.Status+'</td><td>'+i.Application+'</td><td>'+i.FoundDuring+'</td><td>'+i.FoundInEnvironment+'</td><td>'+i.Age+'</td></tr>';
             });
             
             const totalPages = Math.ceil(issues.length / itemsPerPage);
@@ -1915,6 +2051,7 @@
             const severityFilter = document.getElementById('severityFilter').value;
             const applicationFilter = document.getElementById('applicationFilter').value;
             const foundDuringFilter = document.getElementById('foundDuringFilter').value;
+            const foundInEnvFilter = document.getElementById('foundInEnvFilter').value;
             
             filteredData = data;
             
@@ -1938,6 +2075,10 @@
                 filteredData = filteredData.filter(i => i.FoundDuring === foundDuringFilter);
             }
             
+            if (foundInEnvFilter && foundInEnvFilter !== 'all') {
+                filteredData = filteredData.filter(i => i.FoundInEnvironment === foundInEnvFilter);
+            }
+            
             currentPage = 1;
             renderTable(filteredData);
             updateStats(filteredData);
@@ -1950,6 +2091,7 @@
             document.getElementById('severityFilter').value = 'all';
             document.getElementById('applicationFilter').value = 'all';
             document.getElementById('foundDuringFilter').value = 'all';
+            document.getElementById('foundInEnvFilter').value = 'all';
             filteredData = data;
             currentPage = 1;
             renderTable(filteredData);
@@ -1961,7 +2103,7 @@
             const exportData = filteredData;
             
             // Create CSV header
-            let csv = 'Key,Summary,Assignee,Priority,Severity,Status,Application,Found During,Defect Age\n';
+            let csv = 'Key,Summary,Assignee,Priority,Severity,Status,Application,Found During,Found-in Environment,Defect Age\n';
             
             // Add data rows
             exportData.forEach(i => {
@@ -1970,6 +2112,7 @@
                 const applicationEscaped = i.Application.replace(/"/g, '""');
                 const foundDuringEscaped = i.FoundDuring.replace(/"/g, '""');
                 const severityEscaped = i.Severity.replace(/"/g, '""');
+                const foundInEnvEscaped = i.FoundInEnvironment.replace(/"/g, '""');
                 const row = [
                     i.Key,
                     '"' + summaryEscaped + '"',
@@ -1979,6 +2122,7 @@
                     i.Status,
                     '"' + applicationEscaped + '"',
                     '"' + foundDuringEscaped + '"',
+                    '"' + foundInEnvEscaped + '"',
                     i.Age
                 ];
                 csv += row.join(',') + '\n';
@@ -2045,6 +2189,15 @@
             option.value = value;
             option.textContent = value;
             foundDuringFilter.appendChild(option);
+        });
+        
+        const foundInEnvValues = [...new Set(data.map(i => i.FoundInEnvironment))].sort();
+        const foundInEnvFilter = document.getElementById('foundInEnvFilter');
+        foundInEnvValues.forEach(value => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+            foundInEnvFilter.appendChild(option);
         });
         
         renderTable(data);
