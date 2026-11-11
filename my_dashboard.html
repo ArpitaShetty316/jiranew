@@ -1,0 +1,790 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My JIRA Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f0f0f0; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+        .stat { background: #667eea; color: white; padding: 20px; border-radius: 5px; text-align: center; }
+        .stat h3 { margin: 0; font-size: 14px; }
+        .stat .value { font-size: 32px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #667eea; color: white; }
+        .charts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .chart { background: #f8f9fa; padding: 20px; border-radius: 5px; }
+        .filter-bar { margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 5px; }
+        .filter-bar select, .filter-bar input { padding: 8px; margin-right: 10px; border-radius: 5px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My JIRA Dashboard</h1>
+        <p style="color: #666; margin-bottom: 20px;">Showing all open issues assigned to arpita_r_shetty</p>
+        <div class="stats">
+            <div class="stat"><h3>Total</h3><div class="value" id="total">0</div></div>
+            <div class="stat"><h3>P1/P2</h3><div class="value" id="high">0</div></div>
+            <div class="stat"><h3>60+ Days</h3><div class="value" id="old">0</div></div>
+            <div class="stat"><h3>Avg Age</h3><div class="value" id="avg">0</div></div>
+        </div>
+        
+        <div class="filter-bar">
+            <label>Filter by Priority:</label>
+            <select id="priorityFilter" onchange="applyFilters()" style="padding: 8px; margin-right: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <option value="all">All Priorities</option>
+            </select>
+            
+            <label style="margin-left: 20px;">Filter by Application:</label>
+            <select id="applicationFilter" onchange="applyFilters()" style="padding: 8px; margin-right: 10px; border-radius: 5px; border: 1px solid #ddd; min-width: 200px;">
+                <option value="all">All Applications</option>
+            </select>
+            
+            <button onclick="resetFilters()" style="margin-left: 20px; padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Reset Filters</button>
+        </div>
+        
+        <div class="charts">
+            <div class="chart"><canvas id="priorityChart"></canvas></div>
+            <div class="chart"><canvas id="statusChart"></canvas></div>
+            <div class="chart"><canvas id="applicationChart"></canvas></div>
+        </div>
+        <table>
+            <thead><tr><th>Key</th><th>Summary</th><th>Priority</th><th>Status</th><th>Application</th><th>Age</th></tr></thead>
+            <tbody id="table"></tbody>
+        </table>
+        
+        <div style="margin-top: 20px; text-align: center;">
+            <button onclick="prevPage()" id="prevBtn" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Previous</button>
+            <span id="pageInfo" style="margin: 0 20px;">Page 1 of 1</span>
+            <button onclick="nextPage()" id="nextBtn" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Next</button>
+        </div>
+    </div>
+    <script>
+        const data = [
+    {
+        "Key":  "UPD-2387",
+        "Summary":  "UPD CSB26 Post Launch :: PREMIER EMEA T2 :: PLP - Missing  HMC Banner ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  481,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "UPD-2386",
+        "Summary":  "UPD CSB26 Post Launch :: PREMIER EMEA T2 :: PLP - Missing HMC MFE CTA in Hero Banner  and ANAV",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  481,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "UPD-278",
+        "Summary":  "JP Latitude \u0026 Optiplex UAT : Content defects",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  902,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-2922",
+        "Summary":  "FY26 Q3 :: PLP2.0 Recommendation MOdule :: Requirement Plan: Manual Curation of Order Codes",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  435,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Story"
+    },
+    {
+        "Key":  "MDI-4657",
+        "Summary":  "MastHead  :: Use absolute HTTPS URLs across Newsroom pages",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  12,
+        "Application":  "Dell - Unified Masthead (1000841)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MDI-4551",
+        "Summary":  "Wave1.2 SIT: Footer issues on Events Calendars",
+        "Priority":  "P1 - Urgent",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  20,
+        "Application":  "Unified Deals (1005429)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-4061",
+        "Summary":  "Korea (Channel) - Pls revise Korean on EUDC [APJC Channel ORT] - Dell Digital Jira",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  6,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3884",
+        "Summary":  "SG Premier - Missing image \u0026 Desc for Systems [APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for E2E",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  21,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3803",
+        "Summary":  "Korea (Channel) - Can\u0027t go back to homepage from SPL[APJC Channel ORT] - Dell Digital Jira",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  30,
+        "Application":  "PM_ONLY_APP",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3711",
+        "Summary":  "KW Search Mav UAT :: FY27 :: \u003cMissing images in PROD\u003e",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  43,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3682",
+        "Summary":  "KW Search Mav UAT :: FY27 :: \u003cFR - [xps 13] ANAV Issue\u003e",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  64,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3616",
+        "Summary":  "PLP - G4-Premier - GBR \u0026 IRL missing HMC",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  53,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3081",
+        "Summary":  "Korea Premier :Pls change Text localization on Standard Offers",
+        "Priority":  "P2 - Very High",
+        "Status":  "In E2E",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  91,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-2536",
+        "Summary":  "Global Portal : Same offer on same store not showing product image for some ship to countries [APJC Global Portal ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  113,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-2023",
+        "Summary":  "Isreal/SAU/ARE - Product Discovery: ‘Browse Category’ is not properly translated into English",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  124,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-1275",
+        "Summary":  "\u003cFC-Image missing for many of the accessories \u003e[APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  141,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-736",
+        "Summary":  "[Masthead}\u003cJP- \"Quote\" and \"\"Order Status\" link missing from masthead account widget\u003e [APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  152,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-821128",
+        "Summary":  "ODW_1.0 : Premier : Missing TR content",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  0,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-819497",
+        "Summary":  "GE1/DEV5 - COMM - Search not returning result for Custkit - kwvp3 in AU Premier store",
+        "Priority":  "P0 - Highest",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  2,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-814854",
+        "Summary":  "PROD [Oct 31 Cutover]_ODW_1.0_INC #: Incorrect HMC Content for PD Suite - Global",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  10,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-814845",
+        "Summary":  "Premier - PROD - Logging into Turkey \u0026 Australia store directs to Internal Server Error ",
+        "Priority":  "P2 - Very High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  10,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-814839",
+        "Summary":  "Premier - PROD - 4 BUs Searching for offer QCT1250_reg_03 results in \"Sorry there are no results for qct1250_reg_03\"",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  10,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-810898",
+        "Summary":  "MicroContentString collection : Latest Profile Tagging Wiped Out by Subsequent Untag Event Processing",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  14,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-809337",
+        "Summary":  "DSC ISG: GE4: Platform Title Missing for poweredgeir50003p",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  18,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-802518",
+        "Summary":  "EU Guarantee Label : Content Overlapping on the EU Garan Label",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  30,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-794315",
+        "Summary":  "Incorrect option class description in DSC XC 17G Offer",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  43,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-790788",
+        "Summary":  "SPL Prod Std Offers :: SPL Disti Store - Std Offers PD Flyout not showing Warranty Duration for SPL Offers",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  49,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-789654",
+        "Summary":  "US SNP offers missing in DP taxonomy",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  50,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-788908",
+        "Summary":  "ODW_1.0_INC# : FR - [Inspiron] Relevancy Issue ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  51,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-788391",
+        "Summary":  "ODW_1.0_INC# : Incorrect name + Missing image",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  52,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-788269",
+        "Summary":  "ODW_1.0_Cutover SafeLaunch : ITP Template =\u003e Parts \u0026 Repairs Product Names incorrect",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  52,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-788116",
+        "Summary":  "PROD - MG Images Broken",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  53,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-787809",
+        "Summary":  "CP Description issues",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  53,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-786117",
+        "Summary":  "APD feature section content is missing",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  55,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-781007",
+        "Summary":  "Gaming Monitors Category Incorrectly Displayed in Premier UX When No Eligible Offers Exist",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  61,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-778309",
+        "Summary":  "SPL ORT Premier :: Premier SPL Std Offers PD Flyout missing Duration on Services in Specifications",
+        "Priority":  "P2 - Very High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  67,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-776383",
+        "Summary":  "Need DSC to take and display offer name from CPQ",
+        "Priority":  "P1 - Urgent",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  69,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-774913",
+        "Summary":  "ODW | Content Reflection Issue - APD Page | 06136890",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  70,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-767880",
+        "Summary":  "Replacing OOS item causes error ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  83,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-764897",
+        "Summary":  "CSG - ODW ORT 1.0 Production: MVK_OTDTC_OE_Online : Product image missing for Dell MS3320W Mouse - generic fallback icons displayed instead of actual product photo",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  85,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-758705",
+        "Summary":  "Offer Content Missing for Brazil (pt) Offers",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  95,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-753391",
+        "Summary":  "Prod Dell.com:: Accessories Tab - Image is empty in mice tab",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  99,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-751798",
+        "Summary":  "Prod: TileLayoutWebpart Duplicate IDs existing",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  102,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-740459",
+        "Summary":  "B2B - G93 - Item Attributes Missing From XML BHC Catalog MAV-704251",
+        "Priority":  "P2 - Very High",
+        "Status":  "Waiting for E2E",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  113,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-739958",
+        "Summary":  "ODW: Accuracy Testing | Dell.com | PC Journey | AR and 3D Feature Missing| Tier 2",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  113,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-733431",
+        "Summary":  "PROD: Datapipeline offer data - invalid property type",
+        "Priority":  "P2 - Very High",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  117,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-717772",
+        "Summary":  "[PROD TESTING DEFECT] :: PFYD Result page ANAV missing, Search API return empty navigators",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  127,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-712970",
+        "Summary":  "DTX UAT - \u003cDell.com \u003e - \u003cUS\u003e - \u003cEN-US\u003e - SnP 3PP - PreProd - \u003cMissing MFG Part and Name\u003e",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  132,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-710244",
+        "Summary":  "DTX UAT - \u003cDell.com \u003e - \u003cUS\u003e - \u003cEN-US\u003e - SnP 3PP - PreProd - \u003cMissing media gallary images\u003e",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  134,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-590994",
+        "Summary":  "MAV: Ge4: PQTO: Spanish language quote is showing English text in the footer",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  238,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-578512",
+        "Summary":  "DTX UAT - Premier - AMER- PC Journey - Results are not consistant",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Development",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  245,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-578375",
+        "Summary":  "DTX UAT - Premier - MEX- PC Journey - Wrong list of product 1 of 12 results, ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  245,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "COEA-4443",
+        "Summary":  "Content Needing To Be Marked Up As A List - Content that functions as a list should be indicated as such to screen reader users.",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  18,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "COEA-4375",
+        "Summary":  "Link Purpose Unclear To Screen Reader Users - Screen reader users need additional context to understand the purpose of the \"Learn more\" link.",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  18,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    }
+];
+        let currentPage = 1;
+        const itemsPerPage = 50;
+        let filteredData = data;
+        
+        function updateStats(filteredData) {
+            document.getElementById('total').textContent = filteredData.length;
+            document.getElementById('high').textContent = filteredData.filter(i => i.Priority.includes('P1') || i.Priority.includes('P2')).length;
+            document.getElementById('old').textContent = filteredData.filter(i => i.Age >= 60).length;
+            const avgAge = filteredData.length > 0 ? filteredData.reduce((a,b) => a + b.Age, 0) / filteredData.length : 0;
+            document.getElementById('avg').textContent = Math.round(avgAge);
+        }
+        
+        function renderTable(issues) {
+            const tbody = document.getElementById('table');
+            tbody.innerHTML = '';
+            
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = issues.slice(startIndex, endIndex);
+            
+            pageData.forEach(i => {
+                tbody.innerHTML += '<tr><td><a href="https://jira.dell.com/browse/'+i.Key+'">'+i.Key+'</a></td><td>'+i.Summary+'</td><td>'+i.Priority+'</td><td>'+i.Status+'</td><td>'+i.Application+'</td><td>'+i.Age+'</td></tr>';
+            });
+            
+            const totalPages = Math.ceil(issues.length / itemsPerPage);
+            document.getElementById('pageInfo').textContent = 'Page ' + currentPage + ' of ' + totalPages;
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+        
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable(filteredData);
+            }
+        }
+        
+        function nextPage() {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable(filteredData);
+            }
+        }
+        
+        function applyFilters() {
+            const priorityFilter = document.getElementById('priorityFilter').value;
+            const applicationFilter = document.getElementById('applicationFilter').value;
+            
+            filteredData = data;
+            
+            if (priorityFilter && priorityFilter !== 'all') {
+                filteredData = filteredData.filter(i => i.Priority === priorityFilter);
+            }
+            
+            if (applicationFilter && applicationFilter !== 'all') {
+                filteredData = filteredData.filter(i => i.Application === applicationFilter);
+            }
+            
+            currentPage = 1;
+            renderTable(filteredData);
+            updateStats(filteredData);
+        }
+        
+        function resetFilters() {
+            document.getElementById('priorityFilter').value = 'all';
+            document.getElementById('applicationFilter').value = 'all';
+            filteredData = data;
+            currentPage = 1;
+            renderTable(filteredData);
+            updateStats(filteredData);
+        }
+        
+        updateStats(data);
+        
+        const priorities = [...new Set(data.map(i => i.Priority))];
+        const priorityFilter = document.getElementById('priorityFilter');
+        priorities.forEach(priority => {
+            const option = document.createElement('option');
+            option.value = priority;
+            option.textContent = priority;
+            priorityFilter.appendChild(option);
+        });
+        
+        const applications = [...new Set(data.map(i => i.Application))].sort();
+        const applicationFilter = document.getElementById('applicationFilter');
+        applications.forEach(app => {
+            const option = document.createElement('option');
+            option.value = app;
+            option.textContent = app;
+            applicationFilter.appendChild(option);
+        });
+        
+        renderTable(data);
+        
+        const priorityCounts = {};
+        data.forEach(i => priorityCounts[i.Priority] = (priorityCounts[i.Priority] || 0) + 1);
+        new Chart(document.getElementById('priorityChart'), {
+            type: 'pie',
+            data: { labels: Object.keys(priorityCounts), datasets: [{ data: Object.values(priorityCounts), backgroundColor: ['#ff6b6b','#ffa500','#ffd93d','#6bcb77','#4d96ff'] }] }
+        });
+        
+        const statusCounts = {};
+        data.forEach(i => statusCounts[i.Status] = (statusCounts[i.Status] || 0) + 1);
+        new Chart(document.getElementById('statusChart'), {
+            type: 'bar',
+            data: { labels: Object.keys(statusCounts), datasets: [{ label: 'Issues', data: Object.values(statusCounts), backgroundColor: '#667eea' }] }
+        });
+        
+        const applicationCounts = {};
+        data.forEach(i => applicationCounts[i.Application] = (applicationCounts[i.Application] || 0) + 1);
+        new Chart(document.getElementById('applicationChart'), {
+            type: 'bar',
+            data: {
+                labels: Object.keys(applicationCounts),
+                datasets: [{
+                    label: 'Issues',
+                    data: Object.values(applicationCounts),
+                    backgroundColor: '#4d96ff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: { display: true, text: 'Issues by Application' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
