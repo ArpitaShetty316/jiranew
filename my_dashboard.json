@@ -1,5 +1,38 @@
 ﻿[
     {
+        "Key":  "UPD-3250",
+        "Summary":  "Multicolor Offer Cards BVT : ( HK Compare issue)",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  1,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "UPD-2411",
+        "Summary":  "UPD CSB26 Post Launch :: PREMIER :: Content Not translated",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  475,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "UPD-2410",
+        "Summary":  "UPD CSB26 Post Launch :: PREMIER :: HMC modal - CTA missing in Hero Banner and ANAV",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "RAJU, TAMILSELVI",
+        "Age":  475,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "UPD-2387",
         "Summary":  "UPD CSB26 Post Launch :: PREMIER EMEA T2 :: PLP - Missing  HMC Banner ",
         "Priority":  "P4 - Medium",
@@ -22,6 +55,17 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "UPD-2205",
+        "Summary":  "SITE REVIEW :: Configurator :: Regulatory links on page are broken (CONTENT)",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  518,
+        "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "UPD-278",
         "Summary":  "JP Latitude \u0026 Optiplex UAT : Content defects",
         "Priority":  "P4 - Medium",
@@ -29,6 +73,39 @@
         "Assignee":  "Shetty, Arpita R",
         "Age":  902,
         "Application":  "Dell Buyer - UPD Configure (1006334)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-3302",
+        "Summary":  "**PLP2.0 UAT Defect** Tech Spec Missing \u003c5",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  411,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-3243",
+        "Summary":  "**PLP2.0 UAT Defect**  - CA EN/FR - Incorrect Deals Landing Page",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Lee1, Annie",
+        "Age":  412,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-2972",
+        "Summary":  "**PLP2.0 UAT Defect** \u003c\u003cTech Specs missing- Premier - DE/CH /FI / ED\u003e\u003e ",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  414,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
         "Category":  "N/A",
         "IssueType":  "Defect"
     },
@@ -42,6 +119,72 @@
         "Application":  "Dell Buyer - Discover - System Results page (1006715)",
         "Category":  "N/A",
         "IssueType":  "Story"
+    },
+    {
+        "Key":  "SCAT-2795",
+        "Summary":  "FY26 :: PLP :: Empty Stack for Education product Line. ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  504,
+        "Application":  "Dell Buyer - Discover (1001232)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-1722",
+        "Summary":  "PLP New Exp UAT: non-en locations :: FY25 :Japan: \u003cUpdate for Key Feature\u003e",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  754,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-1683",
+        "Summary":  "PLP New Exp UAT: non-en locations :: FY25 :: JP Key feature edit",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  768,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-1519",
+        "Summary":  "PLP New Exp UAT: non-en locations :: FY25 :: \u003cCN HK TW Content update needed\u003e",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  779,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-492",
+        "Summary":  "GOP::Core Shop:: Stage::UAT:: SRP::\u003crc1390514\u003e \u003cOptiplex thin client tiny images",
+        "Priority":  "P5 - Low",
+        "Status":  "Proposed",
+        "Assignee":  "Lee1, Annie",
+        "Age":  918,
+        "Application":  "Dell Buyer - Discover (1001232)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "SCAT-269",
+        "Summary":  "UAT - PC Journey PLP US Desktops -  :VS: FY25 :: Change \"View 3 More/Less Specs\" to \"View More/Less Specs\"",
+        "Priority":  "P2 - Very High",
+        "Status":  "In UAT",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  967,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
     },
     {
         "Key":  "MDI-4657",
@@ -77,6 +220,17 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAVCUTOVR-3990",
+        "Summary":  "Full catalog is not displaying correctly in NewCo",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  13,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAVCUTOVR-3884",
         "Summary":  "SG Premier - Missing image \u0026 Desc for Systems [APJC Premier ORT] ",
         "Priority":  "P3 - High",
@@ -94,6 +248,17 @@
         "Status":  "Proposed",
         "Assignee":  "Shetty, Arpita R",
         "Age":  30,
+        "Application":  "PM_ONLY_APP",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3733",
+        "Summary":  "Korea (Channel) - Request for Korean on Homepage [APJC Channel ORT] - Dell Digital Jira",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  40,
         "Application":  "PM_ONLY_APP",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -121,6 +286,17 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAVCUTOVR-3629",
+        "Summary":  "Software link in masthead does not lead to Software page [APJC Premier ORT] - Dell Digital Jira",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  51,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAVCUTOVR-3616",
         "Summary":  "PLP - G4-Premier - GBR \u0026 IRL missing HMC",
         "Priority":  "P4 - Medium",
@@ -132,12 +308,45 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAVCUTOVR-3445",
+        "Summary":  "[APJC Channel ORT] - AU SHOP Menu Level 3 showing wrong naming",
+        "Priority":  "P2 - Very High",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  65,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAVCUTOVR-3081",
         "Summary":  "Korea Premier :Pls change Text localization on Standard Offers",
         "Priority":  "P2 - Very High",
         "Status":  "In E2E",
         "Assignee":  "Shetty, Arpita R",
         "Age":  91,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-3068",
+        "Summary":  "Australia Premier: Masthead naming convention for ISG needs to be fixed to align with rest of store[APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  92,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-2642",
+        "Summary":  "Korea Premier : Request for Text localization on MastHead [APJC Premier ORT] ",
+        "Priority":  "P1 - Urgent",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  111,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -176,12 +385,78 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAVCUTOVR-1103",
+        "Summary":  "Korea Premier : Request for Text localization on MastHead [APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  145,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-1096",
+        "Summary":  "Translation issue standard offers in Germany \u003e [EMEA Premier ORT",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Lee1, Annie",
+        "Age":  145,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-1059",
+        "Summary":  "[masthead]\u003cJP-\"Parts,Battery\u0026Upgrades\" under Shop redirect to wrong page\u003e [APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  146,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-1018",
+        "Summary":  "Global Portal: Masthead contains links in foreign language [APJC Global Portal ORT]",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  146,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-1016",
+        "Summary":  "Global Portal :  Add to cart message is incorrect [APJC Global Portal ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Lee1, Annie",
+        "Age":  146,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAVCUTOVR-736",
         "Summary":  "[Masthead}\u003cJP- \"Quote\" and \"\"Order Status\" link missing from masthead account widget\u003e [APJC Premier ORT] ",
         "Priority":  "P3 - High",
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
         "Age":  152,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAVCUTOVR-349",
+        "Summary":  "Australia Premier :  Add to cart message is incorrect [APJC Premier ORT] ",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Lee1, Annie",
+        "Age":  164,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -198,12 +473,78 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-820248",
+        "Summary":  "GE1/DEV5 - COMM - ATC button having Japanese text instead of English for AU store",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  1,
+        "Application":  "Dell Buyer - Discover - System Results page (1006715)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-819497",
         "Summary":  "GE1/DEV5 - COMM - Search not returning result for Custkit - kwvp3 in AU Premier store",
         "Priority":  "P0 - Highest",
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
         "Age":  2,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-818947",
+        "Summary":  "G1: ISG 1.1 Channel Partner: Productline Content Missing",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Lee1, Annie",
+        "Age":  5,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-818720",
+        "Summary":  "ODW | Service Upsell - Minor alignment issues within the Cart Service Upsell MFE",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Lee1, Annie",
+        "Age":  5,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-817935",
+        "Summary":  "PROD: Greece: Shop pages - The button label is missing.",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  5,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-817759",
+        "Summary":  "GE1-Premier; IT Infrastructure \u0026 RV Tools menu is not getting displayed for  ",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  6,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-815874",
+        "Summary":  "BR: Parts, Batteries \u0026 Upgrades Not Displayed Under Computers \u0026 Accessories in Masthead",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  8,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -225,6 +566,17 @@
         "Priority":  "P2 - Very High",
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
+        "Age":  10,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-814842",
+        "Summary":  "ODW_1.0 [MTQ-Core Shop] Product Listing Page : Shop URL not redirecting for Premier",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
         "Age":  10,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
@@ -258,7 +610,51 @@
         "Priority":  "P3 - High",
         "Status":  "Proposed",
         "Assignee":  "Shetty, Arpita R",
-        "Age":  18,
+        "Age":  19,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-808428",
+        "Summary":  "Null result page update",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Mahajan, Shradha",
+        "Age":  20,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-807022",
+        "Summary":  "Prod :: FY27 :: Learn Pages without hearders not supported in preview",
+        "Priority":  "P3 - High",
+        "Status":  "Waiting for E2E",
+        "Assignee":  "Mathews, Ryan",
+        "Age":  23,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-805641",
+        "Summary":  "Masthead missing the Software Volume Licensing menu item on G1 Premier",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  27,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-802578",
+        "Summary":  "GE1/DEV5 - COMM - GDO: Unified-masthead Navigation Menu options are missing in UK Shop Homepage [MTQ-E2E] ",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  29,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -275,6 +671,72 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-802274",
+        "Summary":  "[MTQ] [Shop] UMH:: Masthead template for eSupport",
+        "Priority":  "P2 - Very High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Jones, Nathan",
+        "Age":  32,
+        "Application":  "Dell - Unified Masthead (1000841)",
+        "Category":  "N/A",
+        "IssueType":  "Story"
+    },
+    {
+        "Key":  "MAV-802196",
+        "Summary":  "GDO Services :: content not available in GE1",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Lee1, Annie",
+        "Age":  32,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-800339",
+        "Summary":  "PROD - STL - offer PEXE9680_101 : incorrect option class description",
+        "Priority":  "P0 - Highest",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  34,
+        "Application":  "PM_ONLY_APP",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-798327",
+        "Summary":  "DSC option class reflecting incorrectly",
+        "Priority":  "P0 - Highest",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  36,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-796675",
+        "Summary":  "GE1-EUDC; Require modification on the displayed validation/confirmation messages [MTQ-E2E]",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Menon, Atul",
+        "Age":  41,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-794554",
+        "Summary":  "ODW_1.0_INC#: ProSupport Plus video not available in Media Gallery in STCAN1053083",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Lee1, Annie",
+        "Age":  42,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-794315",
         "Summary":  "Incorrect option class description in DSC XC 17G Offer",
         "Priority":  "P4 - Medium",
@@ -286,11 +748,33 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-792428",
+        "Summary":  "Update Offer Descriptions on Dell.com",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Lee1, Annie",
+        "Age":  47,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-790788",
         "Summary":  "SPL Prod Std Offers :: SPL Disti Store - Std Offers PD Flyout not showing Warranty Duration for SPL Offers",
         "Priority":  "P3 - High",
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
+        "Age":  49,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-790575",
+        "Summary":  "Option Class Description discrepancy ",
+        "Priority":  "P0 - Highest",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Klenzendorf, Brad",
         "Age":  49,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
@@ -324,6 +808,17 @@
         "Priority":  "P4 - Medium",
         "Status":  "Proposed",
         "Assignee":  "Shetty, Arpita R",
+        "Age":  52,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-788285",
+        "Summary":  "ODW_1.0_Cutover SafeLaunch : ITP Template =\u003e Parts Tab Shows incorrect product categories",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
         "Age":  52,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
@@ -374,12 +869,34 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-784990",
+        "Summary":  "Harddrives and storage landing on home page",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  56,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-781007",
         "Summary":  "Gaming Monitors Category Incorrectly Displayed in Premier UX When No Eligible Offers Exist",
         "Priority":  "P2 - Very High",
         "Status":  "Proposed",
         "Assignee":  "Shetty, Arpita R",
         "Age":  61,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-779557",
+        "Summary":  "Premier:: Unable to open the products page ",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  63,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -407,6 +924,28 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-776339",
+        "Summary":  "Premier Mexico- Mistranslation in Masthead in LATAM (ES)",
+        "Priority":  "P3 - High",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  69,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-775702",
+        "Summary":  "MAV:Premier:G1: Configurator-When we partner login with Premier then under shop click in on IT infrastructure then server is throwing internal server error.",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  70,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-774913",
         "Summary":  "ODW | Content Reflection Issue - APD Page | 06136890",
         "Priority":  "P4 - Medium",
@@ -418,12 +957,45 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-771998",
+        "Summary":  "ODW Standard Offer Product Image gets removed once I select a different ship to Belgium and Spain",
+        "Priority":  "P2 - Very High",
+        "Status":  "In E2E",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  76,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-768060",
+        "Summary":  "GE1/DEV5 - COMM - Multiple Server and Storage links in the Masthead[MTQ-E2E]",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  83,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-767880",
         "Summary":  "Replacing OOS item causes error ",
         "Priority":  "P4 - Medium",
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
         "Age":  83,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-766102",
+        "Summary":  "Dell.com: Masthead :Accessability defect: 2 element(s) have no visible focus indicator (no outline, box-shadow, or border change on focus)",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  84,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -473,6 +1045,17 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-741010",
+        "Summary":  "Auto-Select Category and CustomCategory for certain masthead classification link types",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Jones, Nathan",
+        "Age":  113,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "MAV-740459",
         "Summary":  "B2B - G93 - Item Attributes Missing From XML BHC Catalog MAV-704251",
         "Priority":  "P2 - Very High",
@@ -489,7 +1072,7 @@
         "Priority":  "P4 - Medium",
         "Status":  "In Development",
         "Assignee":  "Shetty, Arpita R",
-        "Age":  113,
+        "Age":  114,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -501,6 +1084,17 @@
         "Status":  "Defining Details",
         "Assignee":  "Shetty, Arpita R",
         "Age":  117,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-723660",
+        "Summary":  "[MTQ]PROD- Parts missing Item Class selection attribute",
+        "Priority":  "P1 - Urgent",
+        "Status":  "Defining Details",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  124,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect"
@@ -539,6 +1133,402 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-692342",
+        "Summary":  "G4. Dell.com- Agreement label shows Intel but the processor has AMD which is not matching.",
+        "Priority":  "P4 - Medium",
+        "Status":  "Defining Details",
+        "Assignee":  "Lee1, Annie",
+        "Age":  152,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-686139",
+        "Summary":  "Purchase_POD_EMEA_DE-DE_CO-Premier-TC07_Attachments",
+        "Priority":  "P4 - Medium",
+        "Status":  "Obsolete",
+        "Assignee":  "Menon, Atul",
+        "Age":  155,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-655332",
+        "Summary":  "Alienware Category content missing in MAV PROD",
+        "Priority":  "P3 - High",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  183,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-652861",
+        "Summary":  "CMX Masthead category IDs setup for Dell.com globally",
+        "Priority":  "P4 - Medium",
+        "Status":  "Proposed",
+        "Assignee":  "Jones, Nathan",
+        "Age":  186,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-610962",
+        "Summary":  "Micro content labels missing in MAV PROD",
+        "Priority":  "P3 - High",
+        "Status":  "In Development",
+        "Assignee":  "Jones, Nathan",
+        "Age":  222,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "MAV-596086",
+        "Summary":  "DTX_UAT_Maverick(NDA)_Global_Test_Execution_Specialized_UAT_POD",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Progress",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test Execution"
+    },
+    {
+        "Key":  "MAV-596081",
+        "Summary":  "Masthead_POD_Dell.com__APJC_KO-KR_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596080",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_DE-AT_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596079",
+        "Summary":  "Masthead_POD_Dell.com__AMER_FR-CA_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596078",
+        "Summary":  "Masthead_POD_Dell.com__AMER_PT-BR_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596077",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_NL-NL_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596076",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_FR-CH_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596075",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_DA-DK_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596074",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_IT-IT_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596073",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_FR-BE_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596072",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_NO-NO_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596071",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_DE-CH_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596070",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_SV-SE_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596069",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_NL-BE_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596068",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_ES-ES_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596066",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_DE-DE_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596065",
+        "Summary":  "Masthead_POD_Dell.com__APJC_ZH-CN_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596064",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_FR-FR_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596063",
+        "Summary":  "Masthead_POD_Dell.com__APJC_ZH-TW_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596062",
+        "Summary":  "Masthead_POD_Dell.com__APJC_JA-JP_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596061",
+        "Summary":  "Masthead_POD_Dell.com__APJC_ZH-HK_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596060",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-HK_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596059",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-SG_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596058",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-NZ_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596057",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-MY_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596056",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-IN_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596055",
+        "Summary":  "Masthead_POD_Dell.com__APJC_EN-AU_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596054",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_EN-UK_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596053",
+        "Summary":  "Masthead_POD_Dell.com__EMEA_EN-IE_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596052",
+        "Summary":  "Masthead_POD_Dell.com__AMER_EN-CA_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "To Do",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
+        "Key":  "MAV-596051",
+        "Summary":  "Masthead_POD_Dell.com__AMER_EN-US_Masthead_Testing",
+        "Priority":  "P4 - Medium",
+        "Status":  "In Progress",
+        "Assignee":  "Klenzendorf, Brad",
+        "Age":  232,
+        "Application":  "N/A",
+        "Category":  "N/A",
+        "IssueType":  "Test"
+    },
+    {
         "Key":  "MAV-590994",
         "Summary":  "MAV: Ge4: PQTO: Spanish language quote is showing English text in the footer",
         "Priority":  "P4 - Medium",
@@ -572,6 +1562,72 @@
         "IssueType":  "Defect"
     },
     {
+        "Key":  "MAV-525177",
+        "Summary":  "[MTQ] [Shop] UMH :: Premier :: SVL :: US :: Introduce SVL link on masthead (content change)",
+        "Priority":  "P2 - Very High",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Jones, Nathan",
+        "Age":  267,
+        "Application":  "Dell - Unified Masthead (1000841)",
+        "Category":  "N/A",
+        "IssueType":  "Story"
+    },
+    {
+        "Key":  "ICPO-294",
+        "Summary":  "ROW -  Link correction Technology Rotation banner",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Lee1, Annie",
+        "Age":  1169,
+        "Application":  "ISG Category (1003990)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "ICPO-293",
+        "Summary":  "ROW - Remove Poweredge Banner",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Lee1, Annie",
+        "Age":  1169,
+        "Application":  "ISG Category (1003990)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "ICPO-291",
+        "Summary":  "ROW - remove shop poweredge banner",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Lee1, Annie",
+        "Age":  1169,
+        "Application":  "ISG Category (1003990)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "ICPO-289",
+        "Summary":  "ROW - remove deals banner",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Lee1, Annie",
+        "Age":  1169,
+        "Application":  "ISG Category (1003990)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "ICPO-285",
+        "Summary":  "ROW - ISG Server Video link broken",
+        "Priority":  "P4 - Medium",
+        "Status":  "Waiting for UAT",
+        "Assignee":  "Lee1, Annie",
+        "Age":  1169,
+        "Application":  "ISG Category (1003990)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
         "Key":  "COEA-4443",
         "Summary":  "Content Needing To Be Marked Up As A List - Content that functions as a list should be indicated as such to screen reader users.",
         "Priority":  "P4 - Medium",
@@ -588,6 +1644,17 @@
         "Priority":  "P2 - Very High",
         "Status":  "Proposed",
         "Assignee":  "Shetty, Arpita R",
+        "Age":  18,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect"
+    },
+    {
+        "Key":  "COEA-4362",
+        "Summary":  "Link Purpose Unclear To Screen Reader Users - Screen reader users need additional context to understand the purpose of the \"Learn more\" link.",
+        "Priority":  "P2 - Very High",
+        "Status":  "Proposed",
+        "Assignee":  "Mahajan, Shradha",
         "Age":  18,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
