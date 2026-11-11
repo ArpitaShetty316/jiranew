@@ -11,12 +11,13 @@
             margin: 0;
         }
         .container { 
-            max-width: 1400px; 
+            max-width: 100%; 
             margin: 0 auto; 
             background: white; 
             padding: 30px; 
             border-radius: 15px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow-x: auto;
         }
         h1 { 
             color: #333; 
@@ -59,25 +60,54 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
+            table-layout: fixed;
         }
         th, td { 
-            padding: 12px 15px; 
+            padding: 12px 10px; 
             border: 1px solid #e0e0e0; 
             text-align: left; 
+            word-wrap: break-word;
+            overflow: hidden;
         }
         th { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; 
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
+        th:nth-child(1) { width: 120px; } /* Key */
+        th:nth-child(2) { width: 300px; } /* Summary */
+        th:nth-child(3) { width: 150px; } /* Assignee */
+        th:nth-child(4) { width: 100px; } /* Priority */
+        th:nth-child(5) { width: 100px; } /* Severity */
+        th:nth-child(6) { width: 120px; } /* Status */
+        th:nth-child(7) { width: 150px; } /* Application */
+        th:nth-child(8) { width: 150px; } /* Found During */
+        th:nth-child(9) { width: 150px; } /* Found-in Environment */
+        th:nth-child(10) { width: 80px; } /* Defect Age */
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         tr:hover {
             background-color: #e3f2fd;
+        }
+        td {
+            font-size: 13px;
+            vertical-align: middle;
+        }
+        td:nth-child(2) {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        td:nth-child(2):hover {
+            overflow: visible;
+            white-space: normal;
+            word-wrap: break-word;
         }
         td a {
             color: #667eea;
@@ -1230,6 +1260,20 @@
         "FoundInEnvironment":  "ODW 1.0 Production"
     },
     {
+        "Key":  "MAV-776383",
+        "Summary":  "Need DSC to take and display offer name from CPQ",
+        "Priority":  "P1 - Urgent",
+        "Status":  "Waiting for Dev",
+        "Assignee":  "Shetty, Arpita R",
+        "Age":  70,
+        "Application":  "CMSO (1005633)",
+        "Category":  "N/A",
+        "IssueType":  "Defect",
+        "FoundDuring":  "Production Not Project Related",
+        "Severity":  "Sev 3",
+        "FoundInEnvironment":  "Production"
+    },
+    {
         "Key":  "MAV-776339",
         "Summary":  "Premier Mexico- Mistranslation in Masthead in LATAM (ES)",
         "Priority":  "P3 - High",
@@ -1256,20 +1300,6 @@
         "FoundDuring":  "SIT Regression",
         "Severity":  "Sev 3",
         "FoundInEnvironment":  "SIT"
-    },
-    {
-        "Key":  "MAV-776383",
-        "Summary":  "Need DSC to take and display offer name from CPQ",
-        "Priority":  "P1 - Urgent",
-        "Status":  "Waiting for Dev",
-        "Assignee":  "Shetty, Arpita R",
-        "Age":  69,
-        "Application":  "CMSO (1005633)",
-        "Category":  "N/A",
-        "IssueType":  "Defect",
-        "FoundDuring":  "Production Not Project Related",
-        "Severity":  "Sev 3",
-        "FoundInEnvironment":  "Production"
     },
     {
         "Key":  "MAV-778309",
@@ -1613,7 +1643,7 @@
         "Priority":  "P0 - Highest",
         "Status":  "Defining Details",
         "Assignee":  "Klenzendorf, Brad",
-        "Age":  36,
+        "Age":  37,
         "Application":  "CMSO (1005633)",
         "Category":  "N/A",
         "IssueType":  "Defect",
