@@ -1,0 +1,154 @@
+name: Refresh JIRA Dashboard
+
+on:
+  schedule:
+    # Runs every day at 9:00 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  refresh-dashboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup PowerShell
+      uses: microsoft/setup-powershell@v1
+      
+    - name: Generate Dashboard Script
+      run: |
+        # Create the PowerShell script
+        cat > generate_dashboard.ps1 << 'EOF'
+        # JIRA Dashboard Generator for GitHub Actions
+        $token = "${{ secrets.JIRA_TOKEN }}"
+        
+        $headers = @{
+            "Authorization" = "Bearer $token"
+        }
+        
+        Write-Host "Fetching issues for team members..." -ForegroundColor Cyan
+        
+        $teamMembers = @("arpita_r_shetty", "annie_lee1", "Ryan_Mathews", "SHYAMSANKAR.SANKAR", "Atul_Menon", "shradha_mahajan", "nathan_jones", "tamilselvi_raju", "brad_klenzendorf", "shyam_sankar_sankar", "valerie_tan", "pavithra_murugan", "Naveen_Chand_Yaparla")
+        $assigneeConditions = $teamMembers | ForEach-Object { "assignee = '$($_)'" }
+        $assigneeFilter = $assigneeConditions -join " OR "
+        $jql = "(project = 'Maverick (NDA)' OR project = 'MAVCUTOVR') AND ($assigneeFilter) AND status not in (Cancelled, Complete, Done, Closed)"
+        $startAt = 0
+        $maxResults = 1000
+        $allIssues = @()
+        
+        do {
+            $url = "https://jira.dell.com/rest/api/2/search?jql=$([System.Uri]::EscapeDataString($jql))&fields=key,summary,status,priority,assignee,created,updated,customfield_10500,category,issuetype,customfield_10209,customfield_10212,customfield_10211&startAt=$startAt&maxResults=$maxResults"
+            
+            $response = Invoke-WebRequest -Uri $url -Headers $headers -UseBasicParsing
+            $result = $response.Content | ConvertFrom-Json
+            $issues = $result.issues
+            
+            Write-Host "Fetched $($issues.Count) issues (total so far: $($allIssues.Count + $issues.Count))" -ForegroundColor Gray
+            
+            $allIssues += $issues
+            $startAt += $maxResults
+            
+        } while ($issues.Count -eq $maxResults -and $startAt -lt 10000)
+        
+        Write-Host "Total issues fetched: $($allIssues.Count)" -ForegroundColor Green
+        
+        $allIssues = foreach ($issue in $allIssues) {
+            $created = [DateTime]::Parse($issue.fields.created)
+            $days = [Math]::Floor(((Get-Date) - $created).TotalDays)
+            
+            # Get application value
+            $appValue = "N/A"
+            if ($issue.fields.PSObject.Properties.Name -contains "customfield_10500") {
+                $appField = $issue.fields.customfield_10500
+                if ($appField) {
+                    if ($appField -is [string]) {
+                        $appValue = $appField
+                    } elseif ($appField.PSObject.Properties.Name -contains "value") {
+                        $appValue = $appField.value
+                    }
+                }
+            }
+            
+            # Get Found During value
+            $foundDuringValue = "N/A"
+            if ($issue.fields.PSObject.Properties.Name -contains "customfield_10209") {
+                $foundDuringField = $issue.fields.customfield_10209
+                if ($foundDuringField) {
+                    if ($foundDuringField -is [string]) {
+                        $foundDuringValue = $foundDuringField
+                    } elseif ($foundDuringField.PSObject.Properties.Name -contains "value") {
+                        $foundDuringValue = $foundDuringField.value
+                    }
+                }
+            }
+            
+            # Get Severity value
+            $severityValue = "N/A"
+            if ($issue.fields.PSObject.Properties.Name -contains "customfield_10212") {
+                $severityField = $issue.fields.customfield_10212
+                if ($severityField) {
+                    if ($severityField -is [string]) {
+                        $severityValue = $severityField
+                    } elseif ($severityField.PSObject.Properties.Name -contains "value") {
+                        $severityValue = $severityField.value
+                    }
+                }
+            }
+            
+            # Get Found-in Environment value
+            $foundInEnvValue = "N/A"
+            if ($issue.fields.PSObject.Properties.Name -contains "customfield_10211") {
+                $foundInEnvField = $issue.fields.customfield_10211
+                if ($foundInEnvField) {
+                    if ($foundInEnvField -is [string]) {
+                        $foundInEnvValue = $foundInEnvField
+                    } elseif ($foundInEnvField.PSObject.Properties.Name -contains "value") {
+                        $foundInEnvValue = $foundInEnvField.value
+                    }
+                }
+            }
+            
+            [PSCustomObject]@{
+                Key = $issue.key
+                Summary = $issue.fields.summary
+                Priority = $issue.fields.priority.name
+                Status = $issue.fields.status.name
+                Assignee = if ($issue.fields.assignee) { $issue.fields.assignee.displayName } else { "Unassigned" }
+                Age = $days
+                Application = $appValue
+                Category = if ($issue.fields.category) { $issue.fields.category.name } else { "N/A" }
+                IssueType = if ($issue.fields.issuetype) { $issue.fields.issuetype.name } else { "N/A" }
+                FoundDuring = $foundDuringValue
+                Severity = $severityValue
+                FoundInEnvironment = $foundInEnvValue
+            }
+        }
+        
+        Write-Host "Processed $($allIssues.Count) issues" -ForegroundColor Green
+        
+        # Sort by defect age in descending order (oldest first)
+        $allIssues = $allIssues | Sort-Object -Property Age -Descending
+        
+        # Generate data as JSON
+        $jsonData = $allIssues | ConvertTo-Json -Depth 3
+        $jsonData | Out-File -FilePath "my_dashboard.json" -Encoding UTF8
+        
+        # Read the existing HTML template (this would need to be stored in the repo)
+        # For now, we'll use a simplified approach - just generate the JSON
+        # The HTML generation would need the full template embedded in the workflow
+        
+        Write-Host "Dashboard saved to my_dashboard.json" -ForegroundColor Green
+        Write-Host "Note: HTML generation requires the full template to be embedded in this workflow" -ForegroundColor Yellow
+        EOF
+        
+        pwsh -File generate_dashboard.ps1
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add my_dashboard.json
+        git diff --staged --quiet || git commit -m "Auto-refresh dashboard data - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
